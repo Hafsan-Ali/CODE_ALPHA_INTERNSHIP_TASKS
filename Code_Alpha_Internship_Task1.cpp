@@ -18,12 +18,11 @@ public:
     Task(int id, const string& title, const string& category)
         : id(id), title(title), category(category), completed(false) {}
 
-    // Serialize to file line:  id|title|category|completed
     string serialize() const {
         return to_string(id) + "|" + title + "|" + category + "|" + (completed ? "1" : "0");
     }
 
-    // Deserialize from file line
+   
     static Task deserialize(const string& line) {
         Task t;
         size_t p1 = line.find('|');
